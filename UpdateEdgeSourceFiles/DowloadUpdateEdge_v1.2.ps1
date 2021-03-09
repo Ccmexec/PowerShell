@@ -110,7 +110,7 @@ Get-ChildItem  $TempPath -Directory | Sort-Object {[version]$PSItem.Name} -Desce
 ForEach-Object {
     Write-Host "Deleting old version [$($PSItem.Name)] from staging path"
     WriteLog "Deleting old version [$($PSItem.Name)] from staging path" @LogParams -Type Info
-    Remove-Item $PSItem.Fullname -Force
+    Remove-Item $PSItem.Fullname -Recurse -Force
 }
 
 Write-host "### Done, existing script. ###"
