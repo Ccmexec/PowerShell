@@ -81,7 +81,7 @@ switch ($PSBoundParameters.Keys) {
             $reg = New-Item $RegKey -Force | Out-Null
             try { $reg.Handle.Close() } catch {}
         }
-        $reg = New-ItemProperty $RegKey -Name "RemoveSearch"  -Value "reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Search /t REG_DWORD /v SearchboxTaskbarMode /d 1 /f" -PropertyType String -Force
+        $reg = New-ItemProperty $RegKey -Name "RemoveSearch"  -Value "reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Search /t REG_DWORD /v SearchboxTaskbarMode /d 0 /f" -PropertyType String -Force
         try { $reg.Handle.Close() } catch {}
     }
     Default { 'No parameters were specified' }
